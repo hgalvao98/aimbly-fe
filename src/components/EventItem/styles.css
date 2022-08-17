@@ -1,0 +1,82 @@
+.event__subtitle {
+  color: #9c9c9c;
+  font-size: 16px;
+}
+
+.event {
+  width: 394px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  max-height: 50%;
+}
+
+.event__list {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+.list__item {
+  min-width: 394px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  background-color: #1d1d1d;
+  height: 83px;
+  border-radius: 26px;
+  margin-bottom: 10px;
+}
+
+.list__item:last-child {
+  margin-bottom: 100px;
+}
+
+.event__time {
+  height: 61px;
+  width: 133px;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  border-radius: 17px;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 39px;
+  letter-spacing: 0em;
+  margin-left: 11px;
+  margin-right: 20px;
+}
+
+.button__options {
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+  color: white;
+}
+
+.button__delete {
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 17px;
+  background-color: #ffffff1a;
+  padding: 20px 14px;
+}
+
+.button__cancel {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+@media (min-width: 960px) {
+  .list__item:last-child {
+    margin-bottom: 170px;
+  }
+}

@@ -7,7 +7,8 @@ body {
   align-items: center;
 }
 
-h1 {
+h1,
+li {
   color: white;
 }
 
@@ -19,13 +20,14 @@ p {
   width: 428px;
   height: 926px;
   max-height: 90vh;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 
   border: 1px solid #1d1d1d;
   background-color: #000;
   border-radius: 32px;
+  scroll-behavior: smooth;
+  overflow: hidden;
 }
