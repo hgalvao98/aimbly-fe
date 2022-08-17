@@ -8,6 +8,7 @@ export default function EventItem() {
   const [delEvent, setDelEvent] = useState(false);
   const [date, setDate] = useState(new Date());
   const events: [] = useSelector((state: any) => state.events);
+  const reverseEventsOrder = [...events].reverse();
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -31,36 +32,47 @@ export default function EventItem() {
     dispatch(removeEvent(event));
   }
 
-  const handleDelete = () => {
+  const handleDelete = (event: any) => {
     setDelEvent(!delEvent);
   };
 
-  console.log(events);
   return (
     <div className="event">
       <h3 className="event__subtitle">Upcoming alerts</h3>
       <ul className="event__list">
-        {events.map((event: any, idx) => {
+        {reverseEventsOrder.map((event: any, idx) => {
           if (event.time === realTime) {
             handleRemove(event);
             alert(`Time to complete ${event.event}`);
           }
           return (
-            <motion.li onTap={handleDelete} key={idx} className="list__item">
+            <li
+              onClick={() => handleDelete(event)}
+              key={idx}
+              className="list__item"
+              style={{ backgroundColor: !delEvent ? "#1D1D1D" : "#7B2828" }}
+            >
               <div className="event__time">{event.time}</div>
-              {event.event}
               {delEvent === true ? (
-                <div>
+                <motion.div
+                  className="button__options"
+                  key={idx}
+                  initial={{ opacity: 0, x: 200 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                >
                   <button
                     className="button__delete"
-                    onClick={() => handleRemove(event)}
+                    onClick={() => dispatch(removeEvent(event))}
                   >
-                    delete
+                    Delete
                   </button>
-                  <button>cancel</button>
-                </div>
-              ) : null}
-            </motion.li>
+                  <button className="button__cancel">Cancel</button>
+                </motion.div>
+              ) : (
+                <div>{event.event}</div>
+              )}
+            </li>
           );
         })}
       </ul>

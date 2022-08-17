@@ -32,6 +32,10 @@
   margin-bottom: 10px;
 }
 
+.list__item:last-child {
+  margin-bottom: 100px;
+}
+
 .event__time {
   height: 61px;
   width: 133px;
@@ -48,6 +52,31 @@
   margin-right: 20px;
 }
 
+.button__options {
+  margin-left: 50px;
+  display: flex;
+  gap: 10px;
+  color: white;
+}
+
 .button__delete {
-  z-index: 100;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 17px;
+  background-color: #ffffff1a;
+  padding: 20px 14px;
+}
+
+.button__cancel {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: white;
+}
+
+@media (min-width: 960px) {
+  .list__item:last-child {
+    margin-bottom: 170px;
+  }
 }
