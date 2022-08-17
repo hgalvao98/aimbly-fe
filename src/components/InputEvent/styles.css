@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__inputs {
+  background-color: #272727;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 9px;
+  border-radius: 26px;
+  margin-top: 22px;
+}
+
+.form__time,
+.form__event {
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 17px;
+}
+
+.form__time {
+  height: 86px;
+  font-size: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.form__event {
+  height: 47px;
+  padding-left: 19px;
+}
+
+.form__button {
+  background-color: #695dc7;
+  padding: 20px 158px;
+  outline: none;
+  border: none;
+  border-radius: 26px;
+  color: white;
+  margin-top: 11px;
+  margin-bottom: 41px;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+  background: none;
+  display: none;
+}
