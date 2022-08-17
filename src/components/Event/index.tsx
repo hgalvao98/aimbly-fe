@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeEvent } from "../../actions";
+import { delEvent, removeEvent } from "../../actions";
 import { motion } from "framer-motion";
 import "./styles.css";
 
 export default function EventItem() {
-  const [delEvent, setDelEvent] = useState(false);
+  const [deleteEvent, setDeleteEvent] = useState(false);
   const [date, setDate] = useState(new Date());
   const events: [] = useSelector((state: any) => state.events);
   const reverseEventsOrder = [...events].reverse();
@@ -33,8 +33,10 @@ export default function EventItem() {
   }
 
   const handleDelete = (event: any) => {
-    setDelEvent(!delEvent);
+    dispatch(delEvent(event));
   };
+
+  console.log(events);
 
   return (
     <div className="event">
@@ -48,15 +50,15 @@ export default function EventItem() {
           return (
             <li
               onClick={() => handleDelete(event)}
-              key={idx}
               className="list__item"
-              style={{ backgroundColor: !delEvent ? "#1D1D1D" : "#7B2828" }}
+              style={{
+                backgroundColor: !event.completed ? "#1D1D1D" : "#7B2828",
+              }}
             >
               <div className="event__time">{event.time}</div>
-              {delEvent === true ? (
+              {event.completed === true ? (
                 <motion.div
                   className="button__options"
-                  key={idx}
                   initial={{ opacity: 0, x: 200 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.8 }}

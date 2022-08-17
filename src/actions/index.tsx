@@ -12,3 +12,10 @@ export function removeEvent(event: any) {
     payload: event,
   };
 }
+
+export function delEvent(event: any) {
+  return {
+    type: "DEL_EVENT",
+    payload: event,
+  };
+}
