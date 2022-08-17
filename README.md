@@ -24,4 +24,4 @@ Framer Motion - Add animation in a simple and pretty way instead of using css.
 More time:
 
 - Fix react-clock library issue to include in the project or build my own clock component.
-- Fix change on each list item for the delete option.
+- Fix change on each list item for the delete option.(fixed)
